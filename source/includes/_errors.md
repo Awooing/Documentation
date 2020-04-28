@@ -1,22 +1,18 @@
 # Errors
 
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
+<aside class="warning">
+If you come across error 500 or 503, please report it to <code>!Poi*Awoo Vottus#6543</code> (available on <a href="https://discordapp.com/invite/wolke">Awoo Community Discord</a>) or at <a href="mailto:vottus@awooing.moe">vottus@awooing.moe</a></aside>
 
-The Kittn API uses the following error codes:
+We utilize the following HTTP error codes:
 
 
 Error Code | Meaning
 ---------- | -------
 400 | Bad Request -- Your request is invalid.
-401 | Unauthorized -- Your API key is wrong.
-403 | Forbidden -- The kitten requested is hidden for administrators only.
-404 | Not Found -- The specified kitten could not be found.
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method.
-406 | Not Acceptable -- You requested a format that isn't json.
-410 | Gone -- The kitten requested has been removed from our servers.
-418 | I'm a teapot.
+401 | Unauthorized -- You are not logged in or missing auth token.
+403 | Forbidden -- You are not allowed to go here.
+404 | Not Found -- The endpoint doesn't exist or you didn't specify (or specified invalid) parameter like ID
+405 | Method Not Allowed -- You tried a unsupported method.
 429 | Too Many Requests -- You're requesting too many kittens! Slow down!
 500 | Internal Server Error -- We had a problem with our server. Try again later.
 503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.

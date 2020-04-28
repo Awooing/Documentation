@@ -3,12 +3,10 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
-  - python
-  - javascript
+  - php
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://awooing.moe'>2020 &copy; Awooing.moe, Vottus</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -19,221 +17,296 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome, this is the documentation of the Awooing.moe API, from which you can get information from our website.. 
+On the right, you can see examples in Shell, JS and PHP
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+The main API endpoint is `https://rest.awooing.moe/api/v1`
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+The CDN endpoint is `https://cdn.awooing.moe`
 
-# Authentication
+# Council Members
 
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
+## Get all council members
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl "https://rest.awooing.moe/api/v1/council"
 ```
 
-```javascript
-const kittn = require('kittn');
+```php
+$options = [
+    "http"=>[
+        "method"=>"GET"
+    ]
+];
+$context = stream_context_create($options);
+$members = file_get_contents("https://rest.awooing.moe/api/v1/council", false, $context);
+$json = json_decode($members);
 
-let api = kittn.authorize('meowmeowmeow');
+-- OR --
+
+$members = file_get_contents("https://rest.awooing.moe/api/v1/council");
+$json = json_decode($members);
+// easier method if you don't need to set any additional parameters
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> The above command/code returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+    {
+        "id": 4,
+        "name": "Rin",
+        "position": "Head of the council",
+        "about": "Some lorem-ipsum nonsense text about Rin here lel.",
+        "discord_id": "376121356766674948",
+        "user_id": 0
+    },
+    {
+        "id": 5,
+        "name": "Tokichii",
+        "position": "High wan-wan",
+        "about": "Some lorem-ipsum nonsense text about Tokichii here lel.",
+        "discord_id": "227266184737849366",
+        "user_id": 0
+    }
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all council members.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://rest.awooing.moe/api/v1/council`
 
-### Query Parameters
+### Response JSON
 
-Parameter | Default | Description
+Inside of the JSON are arrays with values described below:
+
+Key | Type | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+id | int | Returns the id of the Council Member
+name | string | Name of the Council Member
+about | string | About the Council Member
+discord_id | string | Discord ID of the Council Member
+user_id | string | Website User ID of the Council Member 
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+ID isn't the same as the user id on the website!
 </aside>
 
-## Get a Specific Kitten
+<aside class="notice">
+If user_id returns 0, it means that they're not registered.
+</aside>
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+## Get a specific council member
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl "https://example.com/api/council/5"
 ```
 
-```javascript
-const kittn = require('kittn');
+```php
+$options = [
+    "http"=>[
+        "method"=>"GET"
+    ]
+];
+$context = stream_context_create($options);
+$members = file_get_contents("https://rest.awooing.moe/api/v1/council/5", false, $context);
+$json = json_decode($members);
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+// --- OR --
+
+$members = file_get_contents("https://rest.awooing.moe/api/v1/council/5");
+$json = json_decode($members);
+// easier method if you don't need to set any additional parameters
+
+// ... and then
+echo $json->username; // prints "Tokichii"
 ```
 
-> The above command returns JSON structured like this:
+> The above command/code returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "id": 5,
+    "name": "Tokichii",
+    "position": "High wan-wan",
+    "about": "Some lorem-ipsum nonsense text about Tokichii here lel.",
+    "discord_id": "227266184737849366",
+    "user_id": 0
 }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint retrieves a specific council member.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET http://rest.awooing.moe/api/v1/council/<ID>`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+Parameter | Type | Description
+--------- | ----------- | -----------
+ID | int | The ID of the council member to retrieve
 
-## Delete a Specific Kitten
+### JSON Response
 
-```ruby
-require 'kittn'
+Key | Type | Description
+--------- | ------- | -----------
+id | int | Returns the id of the Council Member
+name | string | Name of the Council Member
+about | string | About the Council Member
+discord_id | string | Discord ID of the Council Member
+user_id | string | Website User ID of the Council Member 
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+<aside class="notice">
+ID isn't the same as the user id on the website!
+</aside>
 
-```python
-import kittn
+<aside class="notice">
+If user_id returns 0, it means that they're not registered.
+</aside>
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+
+# User
+
+## Get information of logged in user
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
+curl "https://rest.awooing.moe/api/v1/user"
+    -H "Cookie: PHPSESSID=<SessionID>;"
+```
+<aside class="notice">
+If you are not logged in (missing session id cookie), it will throw an error 400. 
+</aside>
+
+```php
+$options = [
+    "http"=>[
+        "method"=>"GET",
+        "header"=>"Cookie: PHPSESSID=<SessionID>;"
+    ]
+];
+$context = stream_context_create($options);
+$user = file_get_contents("https://rest.awooing.moe/api/v1/user", false, $context);
+$json = json_decode($user);
+
+// ... and then
+echo $json->username; // prints username
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
+> The above command/code returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+    "id": 13,
+    "username": "user",
+    "email": "testing@example.com",
+    "showAs": "user",
+    "active": true,
+    "banned": true,
+    "role": "member",
+    "discord_id": "unset",
+    "location": "unset",
+    "join_date": "28/04/2020"
 }
 ```
 
-This endpoint deletes a specific kitten.
+This endpoint retrieves information about the logged in user.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`GET https://rest.awooing.moe/api/v1/user`
+
+### Response JSON 
+
+Key | Type | Description
+--------- | ------- | -----------
+id | int | Returns the id of the user
+username | string | Username of the user
+email | string | Email of the user
+showAs | string | The public name (in comments, etc..)
+active | boolean | Boolean if the user is active - verified email
+banned | boolean | Boolean if the user is banned on the website
+role | string | Role of the user
+discord_id | string | Discord ID of the user
+location | string | Location of the user
+join_date | string | When the user registered
+
+<aside class="notice">
+ID isn't the same as the user id on the website!
+</aside>
+
+<aside class="notice">
+If user_id returns 0, it means that they're not registered.
+</aside>
+
+## Get a specific council member
+
+```shell
+curl "https://example.com/api/council/5"
+```
+
+```php
+$options = [
+    "http"=>[
+        "method"=>"GET"
+    ]
+];
+$context = stream_context_create($options);
+$members = file_get_contents("https://rest.awooing.moe/api/v1/council/5", false, $context);
+$json = json_decode($members);
+
+// --- OR --
+
+$members = file_get_contents("https://rest.awooing.moe/api/v1/council/5");
+$json = json_decode($members);
+// easier method if you don't need to set any additional parameters
+
+// ... and then
+echo $json->username; // prints "Tokichii"
+```
+
+> The above command/code returns JSON structured like this:
+
+```json
+{
+    "id": 5,
+    "name": "Tokichii",
+    "position": "High wan-wan",
+    "about": "Some lorem-ipsum nonsense text about Tokichii here lel.",
+    "discord_id": "227266184737849366",
+    "user_id": 0
+}
+```
+
+This endpoint retrieves a specific council member.
+
+### HTTP Request
+
+`GET http://rest.awooing.moe/api/v1/council/<ID>`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+Parameter | Type | Description
+--------- | ----------- | -----------
+ID | int | The ID of the council member to retrieve
+
+### JSON Response
+
+Key | Type | Description
+--------- | ------- | -----------
+id | int | Returns the id of the Council Member
+name | string | Name of the Council Member
+about | string | About the Council Member
+discord_id | string | Discord ID of the Council Member
+user_id | string | Website User ID of the Council Member 
+
+<aside class="notice">
+ID isn't the same as the user id on the website!
+</aside>
+
+<aside class="notice">
+If user_id returns 0, it means that they're not registered.
+</aside>
 
