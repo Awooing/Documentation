@@ -1,7 +1,7 @@
 ## Info about specific user
 
 ```shell
-curl "https://example.com/api/user/10"
+curl "https://rest.awooing.moe/api/v1/user/10"
 ```
 
 <aside class="notice">
@@ -48,7 +48,7 @@ This endpoint retrieves a specific council member.
 
 ### HTTP Request
 
-`GET http://rest.awooing.moe/api/v1/user/<ID>`
+`GET https://rest.awooing.moe/api/v1/user/<ID>`
 
 ### URL Parameters
 

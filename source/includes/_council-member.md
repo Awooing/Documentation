@@ -1,7 +1,7 @@
 ## Specific council member
 
 ```shell
-curl "https://example.com/api/council/5"
+curl "https://rest.awooing.moe/api/v1/council/5"
 ```
 
 ```php
@@ -41,7 +41,7 @@ This endpoint retrieves a specific council member.
 
 ### HTTP Request
 
-`GET http://rest.awooing.moe/api/v1/council/<ID>`
+`GET https://rest.awooing.moe/api/v1/council/<ID>`
 
 ### URL Parameters
 

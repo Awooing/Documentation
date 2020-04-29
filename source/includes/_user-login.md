@@ -63,7 +63,7 @@ If you get rate limited, you can use this endpoint (or login on the website) aft
 </aside>
 
 ### HTTP Request
-`POST http://rest.awooing.moe/api/v1/user`
+`POST https://rest.awooing.moe/api/v1/user`
 
 ### JSON Response (successful login)
 Key | Type | Description

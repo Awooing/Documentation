@@ -59,7 +59,7 @@ If you get rate limited, you can use this endpoint (or register on the website) 
 </aside>
 
 ### HTTP Request
-`PUT http://rest.awooing.moe/api/v1/user`
+`PUT https://rest.awooing.moe/api/v1/user`
 
 ### JSON Response 
 Key           | Type          | Description
