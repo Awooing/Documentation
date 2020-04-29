@@ -82,10 +82,13 @@ html, body {
     position: relative;
 
     input {
+      font-size: 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 100;
       background: $nav-bg;
       border-width: 0 0 1px 0;
       border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
+      padding: 6px 0 6px 30px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - ($nav-padding*2);
@@ -94,12 +97,15 @@ html, body {
       border-radius: 0; /* ios has a default border radius */
     }
 
-    &:before {
+    &:after {
       position: absolute;
       top: 17px;
       left: $nav-padding;
-      color: $nav-text;
+     // color: $nav-text;
       @extend %icon-search;
+      font-size: 18px;
+      font-weight: 100;
+      color: gray;
     }
   }
 
@@ -107,6 +113,8 @@ html, body {
     margin-top: 0;
     box-sizing: border-box;
     height: 0;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
     overflow-y: auto;
     overflow-x: hidden;
     transition-property: height, margin;
@@ -124,11 +132,12 @@ html, body {
     }
 
     a {
-      color: $nav-text;
+      color: white;
       text-decoration: none;
 
       &:hover {
-        text-decoration: underline;
+        //text-decoration: underline;
+        border-bottom: 1px dotted gray;
       }
     }
   }
@@ -175,9 +184,11 @@ html, body {
   }
 
   .toc-footer {
+    font-family: 'Montserrat', sans-serif;
     padding: 1em 0;
     margin-top: 1em;
-    border-top: 1px dashed $nav-footer-border-color;
+    margin-bottom:1px;
+    border-top: 1px solid $nav-footer-border-color;
 
     li,a,p {
       color: $nav-text;
@@ -188,19 +199,24 @@ html, body {
 
     a:hover,
     p:hover {
-      text-decoration: underline;
+      margin-bottom:0;
+      border-bottom: 1px dotted gray;
     }
 
     li {
-      font-size: 0.8em;
-      line-height: 1.7;
+      font-size: 0.9em;
+      line-height: 1.1;
       text-decoration: none;
+      display: inline-block;
     }
   }
 }
 
 .toc-link, .toc-footer li {
-  padding: 0 $nav-padding 0 $nav-padding;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 4px $nav-padding 4px $nav-padding;
   display: block;
   overflow-x: hidden;
   white-space: nowrap;
@@ -471,13 +487,16 @@ html, body {
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+    color: white;
+    font-weight: 600;
+    font-family: 'Livvic', sans-serif;
 
     &.warning {
       background-color: $aside-warning-bg;
       a {
         text-decoration: none;
-        color: darkred;
-        border-bottom: 1px dotted darkred;
+        color: white;
+        border-bottom: 1px dotted white;
       }
     }
 
@@ -486,7 +505,7 @@ html, body {
     }
   }
 
-  aside:before {
+  /*aside:before {
     vertical-align: middle;
     padding-right: 0.5em;
     font-size: 14px;
@@ -502,7 +521,7 @@ html, body {
 
   aside.success:before {
     @extend %icon-ok-sign;
-  }
+  }*/
 
   .search-highlight {
     padding: 2px;
