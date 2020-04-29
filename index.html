@@ -363,7 +363,7 @@ ID isn't the same as the user id on the website!
 <aside class="notice">
 If user_id returns 0, it means that they're not registered.
 </aside>
-<h2 id='specific-council-member'>Specific council member</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://example.com/api/council/5"</span>
+<h2 id='specific-council-member'>Specific council member</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.awooing.moe/api/v1/council/5"</span>
 </code></pre><pre class="highlight php tab-php"><code>$options = [
     "http"=&gt;[
         "method"=&gt;"GET"
@@ -396,7 +396,7 @@ echo $json-&gt;username; // prints "Tokichii"
 </span></code></pre>
 <p>This endpoint retrieves a specific council member.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://rest.awooing.moe/api/v1/council/&lt;ID&gt;</code></p>
+<p><code>GET https://rest.awooing.moe/api/v1/council/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -550,7 +550,7 @@ echo $json-&gt;username; // prints username
 <td>When the user registered</td>
 </tr>
 </tbody></table>
-<h2 id='info-about-specific-user'>Info about specific user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://example.com/api/user/10"</span>
+<h2 id='info-about-specific-user'>Info about specific user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.awooing.moe/api/v1/user/10"</span>
 </code></pre>
 <aside class="notice">
 If a user is logged in and the ID requested is the same as his,
@@ -590,7 +590,7 @@ echo $json-&gt;username; // prints "AwooRin"
 </span></code></pre>
 <p>This endpoint retrieves a specific council member.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://rest.awooing.moe/api/v1/user/&lt;ID&gt;</code></p>
+<p><code>GET https://rest.awooing.moe/api/v1/user/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -708,7 +708,7 @@ This endpoint is rate limited for 5 unsuccessful login attempts per IP address.<
 If you get rate limited, you can use this endpoint (or login on the website) after 1 hour.
 </aside>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST http://rest.awooing.moe/api/v1/user</code></p>
+<p><code>POST https://rest.awooing.moe/api/v1/user</code></p>
 <h3 id='json-response-successful-login'>JSON Response (successful login)</h3>
 <table><thead>
 <tr>
@@ -848,7 +848,7 @@ This endpoint is rate limited for 1 registration per IP address.
 If you get rate limited, you can use this endpoint (or register on the website) after 1 hour.
 </aside>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>PUT http://rest.awooing.moe/api/v1/user</code></p>
+<p><code>PUT https://rest.awooing.moe/api/v1/user</code></p>
 <h3 id='json-response'>JSON Response</h3>
 <table><thead>
 <tr>
