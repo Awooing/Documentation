@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Awooing Docs</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -196,25 +196,23 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+    <link href="stylesheets/screen-9d3da285.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-bccf8c07.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-c5541673.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;php&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar-cad8cdcb.png" alt="Navbar" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+      <img src="images/logo-28140a8d.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="php">php</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -225,19 +223,30 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#council-members" class="toc-h1 toc-link" data-title="Council Members">Council Members</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#all-council-members" class="toc-h2 toc-link" data-title="All council members">All council members</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#specific-council-member" class="toc-h2 toc-link" data-title="Specific council member">Specific council member</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#user" class="toc-h1 toc-link" data-title="User">User</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#info-about-logged-in-user" class="toc-h2 toc-link" data-title="Info about logged in user">Info about logged in user</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#info-about-specific-user" class="toc-h2 toc-link" data-title="Info about specific user">Info about specific user</a>
+                  </li>
+                  <li>
+                    <a href="#logging-in-and-obtaining-a-token" class="toc-h2 toc-link" data-title="Logging in and obtaining a token">Logging in and obtaining a token</a>
+                  </li>
+                  <li>
+                    <a href="#registering-an-account" class="toc-h2 toc-link" data-title="Registering an account">Registering an account</a>
                   </li>
               </ul>
           </li>
@@ -246,198 +255,692 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://awooing.moe'>2020 &copy; Awooing.moe, Vottus</a></li>
+            <li><p>Current API Version is 0.9.7</p></li>
+            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome, this is the documentation of the Awooing.moe API, from which you can get information from our website.. 
+On the right, you can see examples in Shell, JS and PHP</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>The main API endpoint is <code>https://rest.awooing.moe/api/v1</code></p>
 
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>The CDN endpoint is <code>https://cdn.awooing.moe</code></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+<aside class="warning">
+As of 29/04/2020, the REST API isn't released yet. It is still in development as a part of the rewrite of the website.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>This is the rewrite of the v0 API, which had only 2 functions - random awoo image and discord avatar link for a council member.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p>As of now, this documentation still isn&#39;t complete. I will complete it soon though.</p>
+<h1 id='council-members'>Council Members</h1><h2 id='all-council-members'>All council members</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.awooing.moe/api/v1/council"</span>
+</code></pre><pre class="highlight php tab-php"><code>$options = [
+    "http"=&gt;[
+        "method"=&gt;"GET"
+    ]
+];
+$context = stream_context_create($options);
+$members = file_get_contents("https://rest.awooing.moe/api/v1/council", false, $context);
+$json = json_decode($members);
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+// -- OR --
+
+$members = file_get_contents("https://rest.awooing.moe/api/v1/council");
+$json = json_decode($members);
+// easier method if you don't need to set any additional parameters
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command/code returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rin"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Head of the council"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"about"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some lorem-ipsum nonsense text about Rin here lel."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"discord_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"376121356766674948"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tokichii"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High wan-wan"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"about"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some lorem-ipsum nonsense text about Tokichii here lel."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"discord_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"227266184737849366"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<p>This endpoint retrieves all council members.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p><code>GET https://rest.awooing.moe/api/v1/council</code></p>
+<h3 id='response-json'>Response JSON</h3>
+<p>Inside of the JSON are arrays with values described below:</p>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
+<th>Key</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>id</td>
+<td>int</td>
+<td>Returns the id of the Council Member</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>name</td>
+<td>string</td>
+<td>Name of the Council Member</td>
+</tr>
+<tr>
+<td>about</td>
+<td>string</td>
+<td>About the Council Member</td>
+</tr>
+<tr>
+<td>discord_id</td>
+<td>string</td>
+<td>Discord ID of the Council Member</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Website User ID of the Council Member</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+ID isn't the same as the user id on the website!
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<aside class="notice">
+If user_id returns 0, it means that they're not registered.
+</aside>
+<h2 id='specific-council-member'>Specific council member</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://example.com/api/council/5"</span>
+</code></pre><pre class="highlight php tab-php"><code>$options = [
+    "http"=&gt;[
+        "method"=&gt;"GET"
+    ]
+];
+$context = stream_context_create($options);
+$members = file_get_contents("https://rest.awooing.moe/api/v1/council/5", false, $context);
+$json = json_decode($members);
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+// --- OR --
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+$members = file_get_contents("https://rest.awooing.moe/api/v1/council/5");
+$json = json_decode($members);
+// easier method if you don't need to set any additional parameters
+
+// ... and then
+echo $json-&gt;username; // prints "Tokichii"
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command/code returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tokichii"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High wan-wan"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"about"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some lorem-ipsum nonsense text about Tokichii here lel."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discord_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"227266184737849366"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p>This endpoint retrieves a specific council member.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://rest.awooing.moe/api/v1/council/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>int</td>
+<td>The ID of the council member to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h3 id='json-response'>JSON Response</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>Returns the id of the Council Member</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of the Council Member</td>
+</tr>
+<tr>
+<td>about</td>
+<td>string</td>
+<td>About the Council Member</td>
+</tr>
+<tr>
+<td>discord_id</td>
+<td>string</td>
+<td>Discord ID of the Council Member</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>Website User ID of the Council Member</td>
+</tr>
+</tbody></table>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<aside class="notice">
+ID isn't the same as the user id on the website!
+</aside>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<aside class="notice">
+If user_id returns 0, it means that they're not registered.
+</aside>
+<h1 id='user'>User</h1><h2 id='info-about-logged-in-user'>Info about logged in user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.awooing.moe/api/v1/user"</span>
+    --cookie <span class="s2">"PHPSESSID=&lt;SessionID&gt;"</span>
+</code></pre>
+<aside class="notice">
+If you are not logged in (missing session id cookie), it will throw an error 400. 
+</aside>
+<pre class="highlight php tab-php"><code>$options = [
+    "http"=&gt;[
+        "method"=&gt;"GET",
+        "header"=&gt;"Cookie: PHPSESSID=<span class="nt">&lt;SessionID&gt;</span>;"
+    ]
+];
+$context = stream_context_create($options);
+$user = file_get_contents("https://rest.awooing.moe/api/v1/user", false, $context);
+$json = json_decode($user);
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+// ... and then
+echo $json-&gt;username; // prints username
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command/code returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"showAs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"banned"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"member"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discord_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unset"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unset"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28/04/2020"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<p>This endpoint retrieves information about the logged in user.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://rest.awooing.moe/api/v1/user</code></p>
+<h3 id='response-json'>Response JSON</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>Returns the id of the user</td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>Username of the user</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Email of the user</td>
+</tr>
+<tr>
+<td>showAs</td>
+<td>string</td>
+<td>The public name (in comments, etc..)</td>
+</tr>
+<tr>
+<td>active</td>
+<td>boolean</td>
+<td>Boolean if the user is active - verified email</td>
+</tr>
+<tr>
+<td>banned</td>
+<td>boolean</td>
+<td>Boolean if the user is banned on the website</td>
+</tr>
+<tr>
+<td>role</td>
+<td>string</td>
+<td>Role of the user</td>
+</tr>
+<tr>
+<td>discord_id</td>
+<td>string</td>
+<td>Discord ID of the user</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>Location of the user</td>
+</tr>
+<tr>
+<td>join_date</td>
+<td>string</td>
+<td>When the user registered</td>
+</tr>
+</tbody></table>
+<h2 id='info-about-specific-user'>Info about specific user</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://example.com/api/user/10"</span>
+</code></pre>
+<aside class="notice">
+If a user is logged in and the ID requested is the same as his,
+the result will be same as if you tried to query the logged in user (see "Get information of logged in user"),
+thus the private information will be visible.
+</aside>
+<pre class="highlight php tab-php"><code>$options = [
+    "http"=&gt;[
+        "method"=&gt;"GET"
+    ]
+];
+$context = stream_context_create($options);
+$members = file_get_contents("https://rest.awooing.moe/api/v1/user/12", false, $context);
+$json = json_decode($members);
+
+// --- OR --
+
+$members = file_get_contents("https://rest.awooing.moe/api/v1/user/12");
+$json = json_decode($members);
+// easier method if you don't need to set any additional parameters
+
+// ... and then
+echo $json-&gt;username; // prints "AwooRin"
+</code></pre>
+<blockquote>
+<p>The above command/code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AwooRin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"showAs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awoo Councilman Rin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"member"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discord_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"376121356766674948"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unset"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"join_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19/04/2020"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific council member.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://rest.awooing.moe/api/v1/user/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>int</td>
+<td>The ID of the user to retrieve</td>
+</tr>
+</tbody></table>
+<h3 id='json-response'>JSON Response</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>Returns the id of the user</td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>Username of the user</td>
+</tr>
+<tr>
+<td>showAs</td>
+<td>string</td>
+<td>The public name (in comments, etc..)</td>
+</tr>
+<tr>
+<td>role</td>
+<td>string</td>
+<td>Role of the user</td>
+</tr>
+<tr>
+<td>discord_id</td>
+<td>string</td>
+<td>Discord ID of the user</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>Location of the user</td>
+</tr>
+<tr>
+<td>join_date</td>
+<td>string</td>
+<td>When the user registered</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+If <code>location</code> or <code>discord_id</code> return unset, it means that user not set the value,
+in case of <code>discord_id</code> it's that the user didn't link their account with discord.
+</aside>
+<h2 id='logging-in-and-obtaining-a-token'>Logging in and obtaining a token</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.awooing.moe/api/v1/user"</span>
+    -H <span class="s2">"Content-Type: application/json"</span>
+    -d <span class="s1">'{"username":"XxAwooerXx", "password":"1234"}'</span>
+</code></pre><pre class="highlight php tab-php"><code>
+$credentials = [
+    "username"=&gt;"XxAwooerXx",
+    "password"=&gt;"1234" 
+];
+
+$options = [
+    "http"=&gt;[
+        "method"=&gt;"POST",
+        "content"=&gt;json_encode($credentials)
+    ]
+];
+
+$context = stream_context_create($options);
+$login = file_get_contents("https://rest.awooing.moe/api/v1/user", false, $context);
+$json = json_decode($login);
+
+
+// ... and then
+echo $json-&gt;error; // prints the status code, in case of success it's "OK"
+</code></pre>
+<blockquote>
+<p>The above command/code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SessionIDToken"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Error: </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERR_CODE"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Rate limited:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RATE_LIMITED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"try_again"</span><span class="p">:</span><span class="w"> </span><span class="mi">1588145975</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint authenticates you and you can obtain the token.</p>
+
+<aside class="notice">
+This endpoint is rate limited for 5 unsuccessful login attempts per IP address.<br>
+If you get rate limited, you can use this endpoint (or login on the website) after 1 hour.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST http://rest.awooing.moe/api/v1/user</code></p>
+<h3 id='json-response-successful-login'>JSON Response (successful login)</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>error</td>
+<td>string</td>
+<td>Always OK in case of a success</td>
+</tr>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>The Session ID token</td>
+</tr>
+</tbody></table>
+<h3 id='json-response-error'>JSON Response (error)</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>error</td>
+<td>string</td>
+<td>Error status message</td>
+</tr>
+</tbody></table>
+<h3 id='json-response-rate-limited'>JSON Response (rate limited)</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>error</td>
+<td>string</td>
+<td>Always RATE_LIMITED in case of being rate limited</td>
+</tr>
+<tr>
+<td>try_again</td>
+<td>int</td>
+<td>Time before the IP may use this endpoint again</td>
+</tr>
+</tbody></table>
+<h3 id='status-messages'>Status Messages</h3>
+<table><thead>
+<tr>
+<th>Message</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>OK</td>
+<td>The login was successful.</td>
+</tr>
+<tr>
+<td>RATE_LIMITED</td>
+<td>You have been rate limited.</td>
+</tr>
+<tr>
+<td>ACC_NOT_FOUND</td>
+<td>Account you tried to login with doesn&#39;t exist</td>
+</tr>
+<tr>
+<td>ACC_WRONG_PASS</td>
+<td>You have entered an incorrect password</td>
+</tr>
+<tr>
+<td>ACC_NOT_VERIFIED</td>
+<td>The account is not verified.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You can login even when you are banned, however the API will become useless.
+</aside>
+
+<aside class="warning">
+29/04/2020 - These status messages are likely to be changed soon.
+</aside>
+<h2 id='registering-an-account'>Registering an account</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rest.awooing.moe/api/v1/user"</span>
+    -X PUT
+    -H <span class="s2">"Content-Type: application/json"</span>
+    -d <span class="s1">'{"username":"XxAwooerXx", "email": "awooer@awooing.moe", "password":"1234", "repeatpw":"1234"}'</span>
+</code></pre><pre class="highlight php tab-php"><code>
+$credentials = [
+    "username"=&gt;"XxAwooerXx",
+    "email"=&gt;"awooer@awooing.moe",
+    "password"=&gt;"1234",
+    "repeatpw"=&gt;"1234" 
+];
+
+$options = [
+    "http"=&gt;[
+        "method"=&gt;"PUT",
+        "content"=&gt;json_encode($credentials)
+    ]
+];
+
+$context = stream_context_create($options);
+$login = file_get_contents("https://rest.awooing.moe/api/v1/user", false, $context);
+$json = json_decode($login);
+
+
+// ... and then
+echo $json-&gt;error; // prints the status code, in case of success it's "OK"
+</code></pre>
+<blockquote>
+<p>The above command/code returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"httpCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status message"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Rate limited:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"httpCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">429</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rate limited"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"try_again"</span><span class="p">:</span><span class="w"> </span><span class="mi">1588145975</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint registers a new user.</p>
+
+<aside class="notice">
+This endpoint is rate limited for 1 registration per IP address.
+If you get rate limited, you can use this endpoint (or register on the website) after 1 hour.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>PUT http://rest.awooing.moe/api/v1/user</code></p>
+<h3 id='json-response'>JSON Response</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>httpCode</td>
+<td>int</td>
+<td>HTTP Error Code</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>The Status Message</td>
+</tr>
+</tbody></table>
+<h3 id='json-response-rate-limited'>JSON Response (rate limited)</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>httpCode</td>
+<td>int</td>
+<td>HTTP Error Code</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>The Status Message (always <code>rate limited</code>)</td>
+</tr>
+<tr>
+<td>try_again</td>
+<td>string</td>
+<td>Time before the IP may use this endpoint again</td>
+</tr>
+</tbody></table>
+<h3 id='status-messages'>Status Messages</h3>
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Message</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>ok</td>
+<td>The registration was successful</td>
+</tr>
+<tr>
+<td>400</td>
+<td>invalid json</td>
+<td>Malformed JSON body</td>
+</tr>
+<tr>
+<td>400</td>
+<td>invalid request</td>
+<td>Missing information in the JSON</td>
+</tr>
+<tr>
+<td>400</td>
+<td>username taken</td>
+<td>The username you&#39;re trying to register is taken</td>
+</tr>
+<tr>
+<td>400</td>
+<td>email used</td>
+<td>The email is already associated with another account</td>
+</tr>
+<tr>
+<td>400</td>
+<td>password mismatch</td>
+<td>The values of <code>password</code> and <code>repeatpw</code> doesn&#39;t match</td>
+</tr>
+<tr>
+<td>429</td>
+<td>rate limited</td>
+<td>You have been rate limited. Additional json key <code>try_again</code> is added.</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
+<aside class="warning">
+If you come across error 500 or 503, please report it to <code>!Poi*Awoo Vottus#6543</code> (available on <a href="https://discordapp.com/invite/wolke">Awoo Community Discord</a>) or at <a href="mailto:vottus@awooing.moe">vottus@awooing.moe</a></aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>We utilize the following HTTP error codes:</p>
 
 <table><thead>
 <tr>
@@ -451,31 +954,19 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>Unauthorized -- You are not logged in or missing auth token.</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden -- You are not allowed to go here.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found -- The endpoint doesn&#39;t exist or you didn&#39;t specify (or specified invalid) parameter like ID</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>Method Not Allowed -- You tried a unsupported method.</td>
 </tr>
 <tr>
 <td>429</td>
@@ -495,9 +986,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="php">php</a>
           </div>
       </div>
     </div>
