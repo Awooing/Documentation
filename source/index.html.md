@@ -24,8 +24,8 @@ search: true
 
 # Introduction
 
-Welcome, this is the documentation of the Awooing.moe API, from which you can get information from our website.. 
-On the right, you can see examples in Shell, JS and PHP
+Welcome, this is the documentation of the Awooing.moe API, from which you can get information from our website.
+On the right, you can see examples in Shell, JS and PHP.
 
 The main API endpoint is `https://rest.awooing.moe/api/v1`
 
